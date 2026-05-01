@@ -5,7 +5,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ArrowRight, ArrowLeft, RotateCcw, Brain, Rocket, Heart, Trophy, Search, Loader2, GraduationCap, Briefcase, Languages } from 'lucide-react';
+import { Trophy, Rocket, GraduationCap, MapPin, Brain, Languages, Lightbulb, Compass, Sparkles, ChevronRight, ChevronLeft, Globe, Briefcase, User, Info, ArrowRight, RotateCcw, Search, Loader2, Heart, ArrowLeft } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import { Step, UserProfile, GeminiRecommendationResponse } from './types';
 import { getRecommendations } from './services/geminiService';
 import { Language, translations } from './translations';
@@ -34,6 +35,12 @@ export default function App() {
     age: '',
     education: '',
     studyField: '',
+    mbtiPrefs: {
+      energy: '',
+      info: '',
+      decisions: '',
+      lifestyle: '',
+    },
     workStyle: [],
     environment: '',
     interests: [],
@@ -48,6 +55,7 @@ export default function App() {
     Step.PERSONAL, 
     Step.DEMOGRAPHICS, 
     Step.EDUCATION, 
+    Step.MBTI,
     Step.PREFERENCES,
     Step.INTERESTS, 
     Step.SKILLS, 
@@ -87,6 +95,12 @@ export default function App() {
       age: '',
       education: '',
       studyField: '',
+      mbtiPrefs: {
+        energy: '',
+        info: '',
+        decisions: '',
+        lifestyle: '',
+      },
       workStyle: [],
       environment: '',
       interests: [],
@@ -122,6 +136,11 @@ export default function App() {
       title: t.education.title,
       description: t.education.description,
       icon: <GraduationCap className="text-emerald-500" size={32} />,
+    },
+    [Step.MBTI]: {
+      title: t.mbti.title,
+      description: t.mbti.description,
+      icon: <Brain className="text-pink-500" size={32} />,
     },
     [Step.PREFERENCES]: {
       title: t.preferences.title,
@@ -160,6 +179,7 @@ export default function App() {
       case Step.PERSONAL: return !!profile.name.trim();
       case Step.DEMOGRAPHICS: return !!profile.gender && !!profile.age;
       case Step.EDUCATION: return !!profile.education && !!profile.studyField.trim();
+      case Step.MBTI: return !!profile.mbtiPrefs.energy && !!profile.mbtiPrefs.info && !!profile.mbtiPrefs.decisions && !!profile.mbtiPrefs.lifestyle;
       case Step.PREFERENCES: return profile.workStyle.length > 0 && !!profile.environment;
       case Step.INTERESTS: return profile.interests.length > 0;
       case Step.SKILLS: return profile.skills.length > 0;
@@ -231,12 +251,14 @@ export default function App() {
               className="w-full flex flex-col gap-8"
             >
               <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 py-8 border-b border-slate-200">
-                <div className="text-center md:text-left">
-                  <h2 className="text-5xl font-bold text-slate-900 mb-2">{t.results.title(profile.name)}</h2>
-                  <p className="text-slate-500 max-w-xl text-lg font-medium italic">
-                    {t.results.description(profile.name)}
-                  </p>
-                </div>
+                  <div className="text-center md:text-left">
+                    <h2 className="text-5xl font-bold text-slate-900 mb-2 markdown-content">
+                      <ReactMarkdown>{t.results.title(profile.name)}</ReactMarkdown>
+                    </h2>
+                    <div className="text-slate-500 max-w-xl text-lg font-medium italic markdown-content">
+                      <ReactMarkdown>{t.results.description(profile.name)}</ReactMarkdown>
+                    </div>
+                  </div>
                 <button 
                   onClick={reset}
                   className="px-8 py-4 bg-white border border-slate-200 text-slate-800 font-bold uppercase tracking-wider rounded-2xl flex items-center gap-3 hover:bg-slate-50 transition-all shadow-sm active:scale-95"
@@ -263,31 +285,41 @@ export default function App() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-8 shadow-xl flex flex-col"
+                        className="relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-8 shadow-xl flex flex-col border border-slate-800"
                       >
                         <div className="absolute top-0 right-0 p-6 pointer-events-none opacity-20">
                           <Rocket size={40} className="text-indigo-400" />
                         </div>
                         <div className="relative z-10 flex-grow">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest text-indigo-300 mb-6">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-300 mb-6 border border-white/5">
                             <Trophy size={12} />
-                            {path.matchPercentage}% Match
+                            {path.matchPercentage}% {t.results.matchLabel}
                           </div>
-                          <h3 className="text-2xl font-black mb-4 leading-tight">{path.title}</h3>
-                          <p className="text-slate-400 text-sm leading-relaxed italic mb-6">"{path.description}"</p>
+                          <h3 className="text-3xl font-black mb-4 leading-tight text-white markdown-content">
+                            <ReactMarkdown>{path.title}</ReactMarkdown>
+                          </h3>
+                          <div className="text-slate-400 text-sm leading-relaxed italic mb-6 font-medium markdown-content">
+                            <ReactMarkdown>{"\"" + path.description + "\""}</ReactMarkdown>
+                          </div>
                           
-                          <div className="space-y-4 pt-4 border-t border-white/10">
+                          <div className="space-y-5 pt-5 border-t border-white/10">
                             <div>
-                              <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-1">{t.results.scopeLabel}</p>
-                              <p className="text-sm font-medium">{path.scope}</p>
+                              <p className="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-1.5">{t.results.scopeLabel}</p>
+                              <div className="text-sm font-black text-white markdown-content">
+                                <ReactMarkdown>{path.scope}</ReactMarkdown>
+                              </div>
                             </div>
                             <div>
-                              <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-1">{t.results.salaryLabel}</p>
-                              <p className="text-sm font-bold text-emerald-300">{path.salaryRange}</p>
+                              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1.5">{t.results.salaryLabel}</p>
+                              <div className="text-base font-black text-emerald-400 markdown-content">
+                                <ReactMarkdown>{path.salaryRange}</ReactMarkdown>
+                              </div>
                             </div>
                             <div>
-                              <p className="text-[10px] font-bold uppercase tracking-widest text-amber-400 mb-1">{t.results.contextLabel}</p>
-                              <p className="text-xs text-slate-400 leading-snug">{path.marketContext}</p>
+                              <p className="text-[10px] font-black uppercase tracking-widest text-amber-400 mb-1.5">{t.results.contextLabel}</p>
+                              <div className="text-xs text-slate-300 leading-relaxed font-bold markdown-content">
+                                <ReactMarkdown>{path.marketContext}</ReactMarkdown>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -305,28 +337,28 @@ export default function App() {
                       </h3>
                       <div className="space-y-6 flex-grow">
                         <div>
-                          <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Traits You Identified</p>
-                          <div className="flex flex-wrap gap-2">
+                          <p className={`text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ${lang === 'ur' ? 'text-right' : ''}`}>{t.results.traitsIdentified}</p>
+                          <div className={`flex flex-wrap gap-2 ${lang === 'ur' ? 'flex-row-reverse' : ''}`}>
                              {[...profile.interests, ...profile.skills].map(tag => (
                                <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-[10px] font-bold">{tag}</span>
                              ))}
                           </div>
                         </div>
-                        <p className="text-sm text-slate-500 leading-relaxed italic border-l-2 border-slate-200 pl-4 py-1">
-                          "These indicators are significant markers of your psychological blueprint. We use these to bypass social expectation and target your genuine nature."
-                        </p>
+                        <div className={`text-sm text-slate-500 leading-relaxed italic border-slate-200 py-1 markdown-content ${lang === 'ur' ? 'border-r-2 pr-4 text-right' : 'border-l-2 pl-4'}`}>
+                          <ReactMarkdown>{"\"" + t.results.psychologicalBlueprint + "\""}</ReactMarkdown>
+                        </div>
                       </div>
                     </div>
 
                     {/* Personality Note */}
-                    <div className="bento-card bg-indigo-50 border-indigo-100 p-10">
-                      <h3 className="text-2xl font-bold text-indigo-900 mb-6 flex items-center gap-3">
-                        <Brain size={28} className="text-indigo-600" />
+                    <div className="bento-card bg-indigo-50 border-indigo-100 p-10 h-full flex flex-col">
+                      <h3 className={`text-2xl font-black text-indigo-900 mb-6 flex items-center gap-3 ${lang === 'ur' ? 'flex-row-reverse' : ''}`}>
+                        <Sparkles size={28} className="text-indigo-600" />
                         {t.results.personalityTitle}
                       </h3>
-                      <p className="text-lg text-indigo-800 leading-relaxed font-medium">
-                        {result.personalityNote}
-                      </p>
+                      <div className={`text-lg text-indigo-800 leading-relaxed font-medium markdown-content ${lang === 'ur' ? 'text-right' : ''}`}>
+                         <ReactMarkdown>{result.personalityNote}</ReactMarkdown>
+                      </div>
                     </div>
 
                     {/* Growth & Hobbies */}
@@ -367,21 +399,29 @@ export default function App() {
               className="w-full flex justify-center"
             >
               <div className="w-full max-w-2xl bento-card p-10 md:p-12 shadow-xl shadow-slate-200/50">
-                <div className="flex items-center gap-6 mb-10">
+                <div className="flex items-center gap-6 mb-6">
                   <div className="p-5 rounded-3xl bg-slate-50 border border-slate-100 text-indigo-600 shadow-inner">
                     {currentStepInfo[step].icon}
                   </div>
                   <div className={lang === 'ur' ? 'text-right' : 'text-left'}>
-                    <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-1">
-                      {currentStepInfo[step].title}
+                    <h2 className="text-3xl font-black text-slate-800 tracking-tight mb-1 markdown-content">
+                      <ReactMarkdown>{currentStepInfo[step].title}</ReactMarkdown>
                     </h2>
-                    <p className="text-slate-500 font-medium">
-                      {currentStepInfo[step].description}
-                    </p>
+                    <div className={`text-slate-500 font-medium markdown-content ${lang === 'ur' ? 'text-lg' : 'text-sm'}`}>
+                      <ReactMarkdown>{currentStepInfo[step].description}</ReactMarkdown>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mb-10 min-h-[350px]">
+                <div 
+                  className="mb-6 space-y-6"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && canContinue()) {
+                      e.preventDefault();
+                      nextStep();
+                    }
+                  }}
+                >
                   {step === Step.PERSONAL && (
                     <div className="space-y-6">
                       <div className="flex flex-col gap-2">
@@ -473,6 +513,39 @@ export default function App() {
                     </div>
                   )}
 
+                  {step === Step.MBTI && (
+                    <div className="space-y-6">
+                      {[
+                        { key: 'energy', label: t.mbti.energyLabel, options: t.mbti.energyOptions },
+                        { key: 'info', label: t.mbti.infoLabel, options: t.mbti.infoOptions },
+                        { key: 'decisions', label: t.mbti.decisionsLabel, options: t.mbti.decisionsOptions },
+                        { key: 'lifestyle', label: t.mbti.lifestyleLabel, options: t.mbti.lifestyleOptions },
+                      ].map(category => (
+                        <div key={category.key} className="flex flex-col gap-3">
+                          <label className={`text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{category.label}</label>
+                          <div className="grid grid-cols-2 gap-2">
+                            {Object.entries(category.options).map(([code, label]) => (
+                              <button
+                                key={code}
+                                onClick={() => setProfile({
+                                  ...profile, 
+                                  mbtiPrefs: { ...profile.mbtiPrefs, [category.key]: code }
+                                })}
+                                className={`px-4 py-3 rounded-xl border text-xs font-bold transition-all ${
+                                  profile.mbtiPrefs[category.key as keyof typeof profile.mbtiPrefs] === code 
+                                  ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' 
+                                  : 'bg-white border-slate-200 text-slate-600 hover:border-indigo-400'
+                                }`}
+                              >
+                                {label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {step === Step.PREFERENCES && (
                     <div className="space-y-8">
                        <div className="flex flex-col gap-4">
@@ -523,38 +596,45 @@ export default function App() {
 
                   {step === Step.INTERESTS && (
                     <div className="space-y-6">
-                       <TagInput 
-                        tags={profile.interests} 
-                        setTags={(tags) => setProfile({...profile, interests: tags})} 
-                        placeholder={t.interests.placeholder} 
-                      />
-                      <div className="pt-4">
-                        <div className={`flex flex-wrap gap-2 ${lang === 'ur' ? 'justify-end' : 'justify-start'}`}>
-                          {COMMON_INTERESTS.map(opt => (
-                            <button
-                              key={opt.id}
-                              onClick={() => togglePick('interests', opt.en)}
-                              className={`px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
-                                profile.interests.includes(opt.en)
-                                ? 'bg-rose-500 border-rose-500 text-white shadow-sm'
-                                : 'bg-white border-slate-200 text-slate-500 hover:bg-rose-50'
-                              }`}
-                            >
-                              {opt[lang]}
-                            </button>
-                          ))}
+                       <div className="flex flex-col gap-2">
+                        <label className={`text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.interests.label}</label>
+                        <TagInput 
+                          tags={profile.interests} 
+                          setTags={(tags) => setProfile({...profile, interests: tags})} 
+                          placeholder={t.interests.placeholder} 
+                        />
+                       </div>
+                        <div className="flex flex-wrap gap-2 pt-4">
+                          <p className={`w-full text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 mb-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.interests.suggested}</p>
+                          <div className={`flex flex-wrap gap-2 ${lang === 'ur' ? 'justify-end' : 'justify-start'}`}>
+                            {COMMON_INTERESTS.map(opt => (
+                              <button
+                                key={opt.id}
+                                onClick={() => togglePick('interests', opt.en)}
+                                className={`px-3 py-2 rounded-xl border text-xs font-bold transition-all ${
+                                  profile.interests.includes(opt.en)
+                                  ? 'bg-rose-500 border-rose-500 text-white shadow-sm'
+                                  : 'bg-white border-slate-200 text-slate-500 hover:bg-rose-50'
+                                }`}
+                              >
+                                {opt[lang]}
+                              </button>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
                   {step === Step.SKILLS && (
                     <div className="space-y-6">
-                       <TagInput 
-                        tags={profile.skills} 
-                        setTags={(tags) => setProfile({...profile, skills: tags})} 
-                        placeholder={t.skills.placeholder} 
-                      />
+                       <div className="flex flex-col gap-2">
+                        <label className={`text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.skills.label}</label>
+                        <TagInput 
+                          tags={profile.skills} 
+                          setTags={(tags) => setProfile({...profile, skills: tags})} 
+                          placeholder={t.skills.placeholder} 
+                        />
+                       </div>
                       <div className="flex flex-wrap gap-2 pt-4">
                         <p className={`w-full text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 mb-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.skills.suggested}</p>
                         <div className={`flex flex-wrap gap-2 ${lang === 'ur' ? 'justify-end' : ''}`}>
@@ -578,6 +658,7 @@ export default function App() {
 
                   {step === Step.EXPERIENCE && (
                     <div className="flex flex-col gap-4">
+                      <label className={`text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.experience.label}</label>
                        <textarea
                         value={profile.experience}
                         onChange={(e) => setProfile({...profile, experience: e.target.value})}
@@ -589,6 +670,7 @@ export default function App() {
 
                   {step === Step.ESSENCE && (
                     <div className="flex flex-col gap-4">
+                      <label className={`text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2 ${lang === 'ur' ? 'text-right' : 'text-left'}`}>{t.essence.label}</label>
                        <textarea
                         value={profile.essence}
                         onChange={(e) => setProfile({...profile, essence: e.target.value})}
@@ -599,7 +681,7 @@ export default function App() {
                   )}
                 </div>
 
-                <div className={`flex justify-between items-center pt-8 border-t border-slate-100 ${lang === 'ur' ? 'flex-row-reverse' : ''}`}>
+                <div className={`flex justify-between items-center pt-6 border-t border-slate-100 ${lang === 'ur' ? 'flex-row-reverse' : ''}`}>
                    <button
                     onClick={prevStep}
                     disabled={step === Step.PERSONAL}
@@ -631,10 +713,7 @@ export default function App() {
       {/* Footer */}
       <footer className={`w-full max-w-7xl mt-12 py-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] uppercase font-bold tracking-[0.2em] border-t border-slate-200/60 ${lang === 'ur' ? 'md:flex-row-reverse' : ''}`}>
         <p>&copy; 2026 Simt AI Engine v3.0.0 // AIS CORE</p>
-        <div className={`flex gap-8 mt-4 md:mt-0 ${lang === 'ur' ? 'flex-row-reverse' : ''}`}>
-          <span className="hover:text-slate-600 cursor-pointer transition-colors">Privacy Pulse</span>
-          <span className="hover:text-slate-600 cursor-pointer transition-colors">Digital Direction</span>
-        </div>
+        <p className="mt-4 md:mt-0">{t.results.footerTagline}</p>
       </footer>
     </div>
   );

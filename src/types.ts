@@ -2,6 +2,7 @@ export enum Step {
   PERSONAL = 'personal',
   DEMOGRAPHICS = 'demographics',
   EDUCATION = 'education',
+  MBTI = 'mbti',
   PREFERENCES = 'preferences',
   INTERESTS = 'interests',
   SKILLS = 'skills',
@@ -16,6 +17,12 @@ export interface UserProfile {
   age: string;
   education: string;
   studyField: string;
+  mbtiPrefs: {
+    energy: string;
+    info: string;
+    decisions: string;
+    lifestyle: string;
+  };
   workStyle: string[];
   environment: string;
   interests: string[];

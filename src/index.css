@@ -33,3 +33,24 @@
   @apply px-3 py-1 bg-indigo-600 rounded-lg text-xs font-medium text-white;
 }
 
+/* Markdown Styling */
+.markdown-content strong {
+  @apply font-black text-inherit;
+}
+
+.markdown-content ul {
+  @apply list-disc list-inside space-y-1 my-2;
+}
+
+.markdown-content li {
+  @apply text-inherit;
+}
+
+.markdown-content p {
+  @apply mb-2 last:mb-0;
+}
+
+.markdown-content-white strong {
+  @apply text-white;
+}
+

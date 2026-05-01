@@ -45,11 +45,12 @@ export async function getRecommendations(profile: UserProfile, lang: Language = 
     Based on the following user profile, perform a comprehensive analysis:
     
     User Profile:
-    - Name: ${profile.name}
+    - Name: ${profile.name} (Analyze the linguistic/cultural meaning of this name and how it reflects on their potential journey)
     - Gender: ${profile.gender}
     - Age Group: ${profile.age}
     - Education Level: ${profile.education}
     - Field of Study: ${profile.studyField}
+    - Personality (MBTI Model): ${profile.mbtiPrefs.energy}${profile.mbtiPrefs.info}${profile.mbtiPrefs.decisions}${profile.mbtiPrefs.lifestyle}
     - Preferred Work Style: ${profile.workStyle.join(", ")}
     - Preferred Environment: ${profile.environment}
     - Industrial Interests & Behavioral Tendencies: ${profile.interests.join(", ")}
@@ -58,17 +59,20 @@ export async function getRecommendations(profile: UserProfile, lang: Language = 
     - Personal Philosophy/Ambition: ${profile.essence}
     
     Requirements:
-    1. Perform a holistic synthesis of their personal nature (strengths/traits), their industrial inclinations, and their preferred work culture (e.g., preference for remote work or fast-paced startups) with their past experience. Focus specifically on the Pakistani economy, its emerging tech sectors, industrial hubs, and global remote work popularity.
-    2. Identify at least 3 distinct "Dream Career" Paths that perfectly intersect their profile and work-style preferences.
-    3. For each path, provide:
-       - Match percentage (0-100%)
-       - Specific title and description.
-       - 'scope': Realistic outlook of this job in Pakistan over the next 5 years (High/Rising/Niche).
-       - 'salaryRange': Estimated monthly salary in PKR for early-to-mid career professionals.
-       - 'marketContext': Mention specific hubs (e.g., Lahore/Karachi/Islamabad tech scenes, Faisalabad/Sialkot industrial zones, or freelancing trends).
-    4. Write a 'personalityNote' that validates their unique combination of traits and preferences, explaining how they can dominate their chosen field in the Pakistani professional environment.
+    1. Perform a holistic synthesis of their personal nature (strengths/traits), their industrial inclinations, their MBTI-driven behavioral preferences, and their preferred work culture with their past experience. Focus specifically on the Pakistani economy, its emerging tech sectors, industrial hubs, and global remote work popularity.
+    2. Incorporate the traditional or linguistic significance of their name into your career reasoning—explain if their name carries a spirit that aligns with certain vocational paths.
+    3. Identify at least 3 distinct "Dream Career" Paths that perfectly intersect their profile, personality type, and work-style preferences. Use Markdown for structured output:
+       - Use **Bold** for core skills and high-impact terms.
+       - Use bullet points for any lists within descriptions.
+       - For each path, provide:
+          - Match percentage (0-100%)
+          - Specific title and description.
+          - 'scope': Realistic outlook of this job in Pakistan over the next 5 years (High/Rising/Niche).
+          - 'salaryRange': Estimated monthly PKR range (e.g., "150,000 - 300,000 PKR").
+          - 'marketContext': Mention specific hubs (e.g., Lahore/Karachi/Islamabad tech scenes, Faisalabad/Sialkot industrial zones, or freelancing trends).
+    4. Write a 'personalityNote' that validates their unique combination of traits and preferences, explaining how they can dominate their chosen field in the Pakistani professional environment. **Use bolding for core strengths** and bullet points for specific actionable advice.
     5. Suggest specific new hobbies and skills that will bridge the gap.
-    6. ${lang === 'ur' ? 'IMPORTANT: provide all descriptive text in Urdu.' : 'IMPORTANT: Provide all text in English.'}
+    6. ${lang === 'ur' ? 'IMPORTANT: provide all descriptive text in Urdu. Use bolding and bullet points for readability. Ensure the tone is inspiring yet professional.' : 'IMPORTANT: Provide all text in English. Use bolding and bullet points for readability. Ensure the tone is inspiring yet professional.'}
   `;
 
   try {
