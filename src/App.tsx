@@ -252,7 +252,7 @@ export default function App() {
             >
               <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 py-8 border-b border-slate-200">
                   <div className="text-center md:text-left">
-                    <h2 className="text-5xl font-bold text-slate-900 mb-2 markdown-content">
+                    <h2 className="text-5xl font-black text-slate-900 mb-2 markdown-content">
                       <ReactMarkdown>{t.results.title(profile.name)}</ReactMarkdown>
                     </h2>
                     <div className="text-slate-500 max-w-xl text-lg font-medium italic markdown-content">
@@ -295,7 +295,7 @@ export default function App() {
                             <Trophy size={12} />
                             {path.matchPercentage}% {t.results.matchLabel}
                           </div>
-                          <h3 className="text-3xl font-black mb-4 leading-tight text-white markdown-content">
+                          <h3 className="text-3xl font-bold mb-4 leading-tight text-white markdown-content">
                             <ReactMarkdown>{path.title}</ReactMarkdown>
                           </h3>
                           <div className="text-slate-400 text-sm leading-relaxed italic mb-6 font-medium markdown-content">
@@ -304,14 +304,14 @@ export default function App() {
                           
                           <div className="space-y-5 pt-5 border-t border-white/10">
                             <div>
-                              <p className="text-[10px] font-black uppercase tracking-widest text-indigo-400 mb-1.5">{t.results.scopeLabel}</p>
-                              <div className="text-sm font-black text-white markdown-content">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-1.5">{t.results.scopeLabel}</p>
+                              <div className="text-sm font-bold text-white markdown-content">
                                 <ReactMarkdown>{path.scope}</ReactMarkdown>
                               </div>
                             </div>
                             <div>
-                              <p className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-1.5">{t.results.salaryLabel}</p>
-                              <div className="text-base font-black text-emerald-400 markdown-content">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-1.5">{t.results.salaryLabel}</p>
+                              <div className="text-base font-bold text-emerald-400 markdown-content">
                                 <ReactMarkdown>{path.salaryRange}</ReactMarkdown>
                               </div>
                             </div>
@@ -404,7 +404,7 @@ export default function App() {
                     {currentStepInfo[step].icon}
                   </div>
                   <div className={lang === 'ur' ? 'text-right' : 'text-left'}>
-                    <h2 className="text-3xl font-black text-slate-800 tracking-tight mb-1 markdown-content">
+                    <h2 className="text-3xl font-bold text-slate-800 tracking-tight mb-1 markdown-content">
                       <ReactMarkdown>{currentStepInfo[step].title}</ReactMarkdown>
                     </h2>
                     <div className={`text-slate-500 font-medium markdown-content ${lang === 'ur' ? 'text-lg' : 'text-sm'}`}>

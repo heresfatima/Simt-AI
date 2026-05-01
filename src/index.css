@@ -35,19 +35,19 @@
 
 /* Markdown Styling */
 .markdown-content strong {
-  @apply font-black text-inherit;
+  @apply font-bold text-inherit;
 }
 
 .markdown-content ul {
-  @apply list-disc list-inside space-y-1 my-2;
+  @apply list-disc list-inside space-y-2 my-4;
 }
 
 .markdown-content li {
-  @apply text-inherit;
+  @apply text-inherit pl-2;
 }
 
 .markdown-content p {
-  @apply mb-2 last:mb-0;
+  @apply mb-4 last:mb-0 leading-relaxed;
 }
 
 .markdown-content-white strong {

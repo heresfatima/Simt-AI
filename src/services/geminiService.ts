@@ -62,7 +62,6 @@ export async function getRecommendations(profile: UserProfile, lang: Language = 
     1. Perform a holistic synthesis of their personal nature (strengths/traits), their industrial inclinations, their MBTI-driven behavioral preferences, and their preferred work culture with their past experience. Focus specifically on the Pakistani economy, its emerging tech sectors, industrial hubs, and global remote work popularity.
     2. Incorporate the traditional or linguistic significance of their name into your career reasoning—explain if their name carries a spirit that aligns with certain vocational paths.
     3. Identify at least 3 distinct "Dream Career" Paths that perfectly intersect their profile, personality type, and work-style preferences. Use Markdown for structured output:
-       - Use **Bold** for core skills and high-impact terms.
        - Use bullet points for any lists within descriptions.
        - For each path, provide:
           - Match percentage (0-100%)
@@ -70,9 +69,9 @@ export async function getRecommendations(profile: UserProfile, lang: Language = 
           - 'scope': Realistic outlook of this job in Pakistan over the next 5 years (High/Rising/Niche).
           - 'salaryRange': Estimated monthly PKR range (e.g., "150,000 - 300,000 PKR").
           - 'marketContext': Mention specific hubs (e.g., Lahore/Karachi/Islamabad tech scenes, Faisalabad/Sialkot industrial zones, or freelancing trends).
-    4. Write a 'personalityNote' that validates their unique combination of traits and preferences, explaining how they can dominate their chosen field in the Pakistani professional environment. **Use bolding for core strengths** and bullet points for specific actionable advice.
+    4. Write a 'personalityNote' that validates their unique combination of traits and preferences, explaining how they can dominate their chosen field in the Pakistani professional environment. Use bullet points for specific actionable advice.
     5. Suggest specific new hobbies and skills that will bridge the gap.
-    6. ${lang === 'ur' ? 'IMPORTANT: provide all descriptive text in Urdu. Use bolding and bullet points for readability. Ensure the tone is inspiring yet professional.' : 'IMPORTANT: Provide all text in English. Use bolding and bullet points for readability. Ensure the tone is inspiring yet professional.'}
+    6. ${lang === 'ur' ? 'IMPORTANT: provide all descriptive text in Urdu. Use bullet points for readability. Ensure the tone is inspiring yet professional.' : 'IMPORTANT: Provide all text in English. Use bullet points for readability. Ensure the tone is inspiring yet professional.'}
   `;
 
   try {

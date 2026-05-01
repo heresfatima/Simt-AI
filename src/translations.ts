@@ -160,36 +160,36 @@ export const translations: Record<Language, Translation> = {
       envLabel: "Pace & Environment",
     },
     mbti: {
-      title: "Personality **Blueprint**",
-      description: "Understand your **core behavioral preferences**.",
-      energyLabel: "**Energy Source** (Where do you get your energy?)",
+      title: "Personality Blueprint",
+      description: "Understand your core behavioral preferences.",
+      energyLabel: "Energy Source (Where do you get your energy?)",
       energyOptions: { 
-        E: "**Extroversion** (Acting/Interacting)", 
-        I: "**Introversion** (Reflecting/Solitude)" 
+        E: "Extroversion (Acting/Interacting)", 
+        I: "Introversion (Reflecting/Solitude)" 
       },
-      infoLabel: "**Information Processing** (How do you perceive?)",
+      infoLabel: "Information Processing (How do you perceive?)",
       infoOptions: { 
-        S: "**Sensing** (Facts/Details)", 
-        N: "**Intuition** (Patterns/Possibilities)" 
+        S: "Sensing (Facts/Details)", 
+        N: "Intuition (Patterns/Possibilities)" 
       },
-      decisionsLabel: "**Decision Making** (How do you decide?)",
+      decisionsLabel: "Decision Making (How do you decide?)",
       decisionsOptions: { 
-        T: "**Thinking** (Logic/Objective)", 
-        F: "**Feeling** (Values/Subjective)" 
+        T: "Thinking (Logic/Objective)", 
+        F: "Feeling (Values/Subjective)" 
       },
-      lifestyleLabel: "**Life Organization** (How do you live?)",
+      lifestyleLabel: "Life Organization (How do you live?)",
       lifestyleOptions: { 
-        J: "**Judging** (Structure/Plans)", 
-        P: "**Perceiving** (Flexibility/Spontaneity)" 
+        J: "Judging (Structure/Plans)", 
+        P: "Perceiving (Flexibility/Spontaneity)" 
       },
     },
     results: {
-      title: (name) => `Career **Strategic** Analysis: ${name}`,
-      description: (name) => `Connecting your specific profile to **high-trajectory opportunities** in the Pakistani market.`,
+      title: (name) => `Career Strategic Analysis: ${name}`,
+      description: (name) => `Connecting your specific profile to high-trajectory opportunities in the Pakistani market.`,
       activeProfile: "Active Profile",
       essence: "Essence",
-      velocity: "Career Match **Velocity**",
-      found: "**Optimized Path** Found",
+      velocity: "Career Match Velocity",
+      found: "Optimized Path Found",
       matchLogic: "Match Logic",
       job: "Job",
       discoveryTitle: "Strategic Career Matches",
@@ -200,8 +200,8 @@ export const translations: Record<Language, Translation> = {
       scopeLabel: "Market Outlook",
       salaryLabel: "Est. Monthly Salary (PKR)",
       contextLabel: "Pakistani Market Info",
-      traitsIdentified: "**Traits** You Identified",
-      psychologicalBlueprint: "These indicators are **significant markers** of your psychological blueprint. We use these to bypass **social expectation** and target your **genuine nature**.",
+      traitsIdentified: "Traits You Identified",
+      psychologicalBlueprint: "These indicators are significant markers of your psychological blueprint. We use these to bypass social expectation and target your genuine nature.",
       footerTagline: "Connect Passion to Profession",
     },
     genders: { 'Male': 'Male', 'Female': 'Female', 'Non-binary': 'Non-binary', 'Prefer not to say': 'Prefer not to say' },
@@ -276,36 +276,36 @@ export const translations: Record<Language, Translation> = {
       envLabel: "رفتار اور ماحول",
     },
     mbti: {
-      title: "شخصیت کا **خاکہ**",
-      description: "اپنے **طرزِ عمل** کی بنیادی ترجیحات کو سمجھیں۔",
-      energyLabel: "**توانائی کا ذریعہ** (آپ توانائی کہاں سے حاصل کرتے ہیں؟)",
+      title: "شخصیت کا خاکہ",
+      description: "اپنے طرزِ عمل کی بنیادی ترجیحات کو سمجھیں۔",
+      energyLabel: "توانائی کا ذریعہ (آپ توانائی کہاں سے حاصل کرتے ہیں؟)",
       energyOptions: { 
-        E: "**ایکسٹروورژن** (عمل اور میل جول)", 
-        I: "**انٹروورژن** (غور و فکر اور تنہائی)" 
+        E: "ایکسٹروورژن (عمل اور میل جول)", 
+        I: "انٹروورژن (غور و فکر اور تنہائی)" 
       },
-      infoLabel: "**معلومات کی جانچ** (آپ کیسے ادراک کرتے ہیں؟)",
+      infoLabel: "معلومات کی جانچ (آپ کیسے ادراک کرتے ہیں؟)",
       infoOptions: { 
-        S: "**سینسنگ** (حقائق اور تفصیلات)", 
-        N: "**انٹویشن** (پیٹرن اور امکانات)" 
+        S: "سینسنگ (حقائق اور تفصیلات)", 
+        N: "انٹویشن (پیٹرن اور امکانات)" 
       },
-      decisionsLabel: "**فیصلہ سازی** (آپ فیصلے کیسے کرتے ہیں؟)",
+      decisionsLabel: "فیصلہ سازی (آپ فیصلے کیسے کرتے ہیں؟)",
       decisionsOptions: { 
-        T: "**تھنکنگ** (منطق اور معروضیت)", 
-        F: "**فیلنگ** (اقدار اور موضوعیت)" 
+        T: "تھنکنگ (منطق اور معروضیت)", 
+        F: "فیلنگ (اقدار اور موضوعیت)" 
       },
-      lifestyleLabel: "**تنظیمِ زندگی** (آپ کیسے رہتے ہیں؟)",
+      lifestyleLabel: "تنظیمِ زندگی (آپ کیسے رہتے ہیں؟)",
       lifestyleOptions: { 
-        J: "**ججنگ** (ڈھانچہ اور منصوبے)", 
-        P: "**پرسیونگ** (لچک اور بے ساختگی)" 
+        J: "ججنگ (ڈھانچہ اور منصوبے)", 
+        P: "پرسیونگ (لچک اور بے ساختگی)" 
       },
     },
     results: {
-      title: (name) => `کیریئر کا **اسٹریٹجک** تجزیہ: ${name}`,
-      description: (name) => `آپ کے پروفائل کو پاکستانی مارکیٹ کے **بہترین مواقع** سے جوڑنا۔`,
+      title: (name) => `کیریئر کا اسٹریٹجک تجزیہ: ${name}`,
+      description: (name) => `آپ کے پروفائل کو پاکستانی مارکیٹ کے بہترین مواقع سے جوڑنا۔`,
       activeProfile: "فعال پروفائل",
       essence: "جوہر",
-      velocity: "کیریئر کی **رفتار**",
-      found: "**بہترین راستہ** مل گیا",
+      velocity: "کیریئر کی رفتار",
+      found: "بہترین راستہ مل گیا",
       matchLogic: "میچ لاجک",
       job: "ملازمت",
       discoveryTitle: "اسٹریٹجک کیریئر میچز",
@@ -316,8 +316,8 @@ export const translations: Record<Language, Translation> = {
       scopeLabel: "مارکیٹ آؤٹ لک",
       salaryLabel: "تخمینہ ماہانہ تنخواہ (PKR)",
       contextLabel: "مقامی معلومات",
-      traitsIdentified: "آپ کی **منتخب کردہ** خصوصیات",
-      psychologicalBlueprint: "یہ اشارے آپ کے نفسیاتی خاکے کے **اہم نشانات** ہیں۔ ہم ان کا استعمال **سماجی توقعات** کو نظر انداز کرنے اور آپ کی **حقیقی فطرت** کو تلاش کرنے کے لیے کرتے ہیں۔",
+      traitsIdentified: "آپ کی منتخب کردہ خصوصیات",
+      psychologicalBlueprint: "یہ اشارے آپ کے نفسیاتی خاکے کے اہم نشانات ہیں۔ ہم ان کا استعمال سماجی توقعات کو نظر انداز کرنے اور آپ کی حقیقی فطرت کو تلاش کرنے کے لیے کرتے ہیں۔",
       footerTagline: "شوق کو پیشے سے جوڑیں",
     },
     genders: { 'Male': 'مرد', 'Female': 'خواتین', 'Non-binary': 'غیر بائنری', 'Prefer not to say': 'بتا نا پسند نہیں' },
