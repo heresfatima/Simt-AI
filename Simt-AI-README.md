@@ -34,23 +34,22 @@ As of now, this is a freshly launched feature — the rating distribution isn't 
 ## 📸 Screenshots
 
 **Onboarding — English**
-![Home Screen English](simt-screenshots/Home Screen English.PNG)
+![Home Screen English](simt-screenshots/Home%20Screen%20English.PNG)
 
 **Result Screen — English**
-![Result Screen English](simt-screenshots/Career Matches.PNG)
+![Result Screen English](simt-screenshots/Career%20Matches.PNG)
 
 **Career Matches — with market data & salary estimates**
-![Career Matches](simt-screenshots/Career Matches.PNG)
+![Career Matches](simt-screenshots/Career%20Matches.PNG)
 
 **Personality Analysis**
-![Personality Analysis](simt-screenshots/Personality Analysis.PNG)
+![Personality Analysis](simt-screenshots/Personality%20Analysis.PNG)
 
 **Onboarding — Urdu (fully localized, RTL)**
-![Home Screen Urdu](simt-screenshots/Home Screen Urdu.PNG)
+![Home Screen Urdu](simt-screenshots/Home%20Screen%20Urdu.PNG)
 
 **Result Screen — Urdu**
-![Result Screen Urdu](simt-screenshots/Result Screen Urdu.PNG)
-
+![Result Screen Urdu](simt-screenshots/Result%20Screen%20Urdu.PNG)
 ## 🏗️ Architecture
 
 ```mermaid
