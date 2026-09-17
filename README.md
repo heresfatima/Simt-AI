@@ -1,4 +1,3 @@
-[Simt-AI-README.md](https://github.com/user-attachments/files/32328065/Simt-AI-README.md)
 # 🧭 Simt AI
 
 **Simt** (سمت) means *"direction"* in Urdu — and that's exactly what this app gives Pakistani students and job-seekers who are unsure what career path to take.
