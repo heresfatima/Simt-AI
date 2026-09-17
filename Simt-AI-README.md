@@ -10,7 +10,7 @@ Pakistan has no shortage of talent — but it has a serious shortage of career c
 
 People do their best work — and are genuinely happiest — when they're working in a field that fits who they actually are. Simt AI exists to close that gap: it looks at a person's personality, interests, and background, and turns that into clear, actionable, *Pakistan-specific* career direction — something most students never get access to.
 
-🔗 **[Try it live](https://your-project.vercel.app)**
+🔗 **[Try it live](https://simt-ai-one.vercel.app/)**
 
 ## ✨ Features
 
