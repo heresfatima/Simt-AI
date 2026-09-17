@@ -34,22 +34,22 @@ As of now, this is a freshly launched feature — the rating distribution isn't 
 ## 📸 Screenshots
 
 **Onboarding — English**
-![Home Screen English](simt-screenshots/home_screen_english.png)
+![Home Screen English](screenshots/home_screen_english.png)
 
 **Result Screen — English**
-![Result Screen English](simt-screenshots/result_screen_english.png)
+![Result Screen English](screenshots/result_screen_english.png)
 
 **Career Matches — with market data & salary estimates**
-![Career Matches](simt-screenshots/career_matches.png)
+![Career Matches](screenshots/career_matches.png)
 
 **Personality Analysis**
-![Personality Analysis](simt-screenshots/personality_analysis.png)
+![Personality Analysis](screenshots/personality_analysis.png)
 
 **Onboarding — Urdu (fully localized, RTL)**
-![Home Screen Urdu](simt-screenshots/home_screen_urdu.png)
+![Home Screen Urdu](screenshots/home_screen_urdu.png)
 
 **Result Screen — Urdu**
-![Result Screen Urdu](simt-screenshots/result_screen_urdu.png)
+![Result Screen Urdu](screenshots/result_screen_urdu.png)
 
 ## 🏗️ Architecture
 
