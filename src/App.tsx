@@ -12,6 +12,7 @@ import { getRecommendations } from './services/geminiService';
 import { Language, translations } from './translations';
 import { COMMON_INTERESTS, COMMON_SKILLS, WORK_STYLE_OPTIONS, ENVIRONMENT_OPTIONS } from './data';
 import TagInput from './components/TagInput';
+import FeedbackWidget from './components/FeedbackWidget';
 
 const GENDER_OPTIONS = ['Male', 'Female', 'Non-binary', 'Prefer not to say'];
 const AGE_OPTIONS = ['Under 18', '18-24', '25-34', '35-44', '45-54', '55+'];
@@ -374,7 +375,7 @@ export default function App() {
                           ))}
                         </div>
                       </div>
-                      <div className="mt-auto">
+                                            <div className="mt-auto">
                         <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                           <Heart size={24} className="text-rose-500" />
                           {t.results.hobbiesTitle}
@@ -387,6 +388,12 @@ export default function App() {
                       </div>
                     </div>
                   </div>
+
+                  <FeedbackWidget 
+                    lang={lang} 
+                    userName={profile.name} 
+                    topMatch={result.careerPaths[0]?.title || ''} 
+                  />
                 </div>
               )}
             </motion.div>
