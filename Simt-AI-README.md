@@ -10,7 +10,7 @@ Pakistan has no shortage of talent — but it has a serious shortage of career c
 
 People do their best work — and are genuinely happiest — when they're working in a field that fits who they actually are. Simt AI exists to close that gap: it looks at a person's personality, interests, and background, and turns that into clear, actionable, *Pakistan-specific* career direction — something most students never get access to.
 
-🔗 **[Try it live](https://your-project.vercel.app)**
+🔗 **[Try it live](https://simt-ai-one.vercel.app/)**
 
 ## ✨ Features
 
@@ -34,22 +34,22 @@ As of now, this is a freshly launched feature — the rating distribution isn't 
 ## 📸 Screenshots
 
 **Onboarding — English**
-![Home Screen English](simt-screenshots/home_screen_english.png)
+![Home Screen English](simt-screenshots/Home Screen English.png)
 
 **Result Screen — English**
-![Result Screen English](simt-screenshots/result_screen_english.png)
+![Result Screen English](simt-screenshots/Career Matches.png)
 
 **Career Matches — with market data & salary estimates**
-![Career Matches](simt-screenshots/career_matches.png)
+![Career Matches](simt-screenshots/Career Matches.png)
 
 **Personality Analysis**
-![Personality Analysis](simt-screenshots/personality_analysis.png)
+![Personality Analysis](simt-screenshots/Personality Analysis.png)
 
 **Onboarding — Urdu (fully localized, RTL)**
-![Home Screen Urdu](simt-screenshots/home_screen_urdu.png)
+![Home Screen Urdu](simt-screenshots/Home Screen Urdu.png)
 
 **Result Screen — Urdu**
-![Result Screen Urdu](simt-screenshots/result_screen_urdu.png)
+![Result Screen Urdu](simt-screenshots/Result Screen Urdu.png)
 
 ## 🏗️ Architecture
 
